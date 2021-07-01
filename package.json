@@ -19,5 +19,8 @@
   "homepage": "https://github.com/DevArrowsmith/music-library#readme",
   "devDependencies": {
     "eslint": "^7.29.0"
+  },
+  "dependencies": {
+    "express": "^4.17.1"
   }
 }

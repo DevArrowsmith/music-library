@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/DevArrowsmith/music-library/issues"
   },
-  "homepage": "https://github.com/DevArrowsmith/music-library#readme"
+  "homepage": "https://github.com/DevArrowsmith/music-library#readme",
+  "devDependencies": {
+    "eslint": "^7.29.0"
+  }
 }

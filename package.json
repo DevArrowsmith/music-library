@@ -4,7 +4,9 @@
   "description": "This is an exercise in the use of express to query a MySQL database.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "pretest": "node utils/create-database.js test",
+    "test": "mocha tests/**/*.js --exit --recursive --timeout 6000 --file ./tests/test-setup.js",
+    "posttest": "node utils/drop-database.js",
     "prestart": "node utils/create-database.js",
     "start": "nodemon -r dotenv/config index.js"
   },
@@ -32,3 +34,4 @@
     "mysql2": "^2.2.5"
   }
 }
+

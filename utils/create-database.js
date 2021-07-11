@@ -30,7 +30,9 @@ const setUpDatabase = async () => {
     await db.query(`CREATE TABLE IF NOT EXISTS Albums (
         id INT PRIMARY KEY auto_increment,
         name VARCHAR(25),
-        year INT
+        year INT(4),
+        artistId INT,
+        CONSTRAINT artist_foreign_key FOREIGN KEY (artistId) REFERENCES Artist(id) ON DELETE CASCADE
     )`);
     db.close();
     } catch (err) {

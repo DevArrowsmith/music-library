@@ -11,7 +11,7 @@ exports.create = async (req, res) => {
         ]);
         res.sendStatus(201);
     } catch (error) {
-        res.sendStatus(500).json(error);
+        res.status(500).json(error);
     }
     db.close;
 };
@@ -25,4 +25,18 @@ exports.read = async (_, res) => {
         res.status(500).json(error);
     }
     db.close;
+};
+
+exports.findArtistById = async (req, res) => {
+    const db = await getDb();
+    const { artistId } = req.params;
+    const [[artist]] = await db.query('SELECT * FROM Artist WHERE id = ?', [
+        artistId
+    ]);
+    if (artist) {
+        res.status(200).json(artist);
+    } else {
+        res.sendStatus(404);
+    }
+    db.close; 
 };

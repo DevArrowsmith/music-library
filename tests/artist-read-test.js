@@ -54,7 +54,7 @@ describe ('read artist', () => {
                 expect(res.body).to.deep.equal(expected);
             });
             it('returns a 404 if the artist is not in the database', async () => {
-                const res = await (await request(app).get('/artist/999999')).send();
+                const res = await request(app).get('/artist/999999').send();
                 expect(res.status).to.equal(404);
             });
         });

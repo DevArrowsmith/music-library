@@ -6,6 +6,7 @@ const app = require('../src/app');
 describe('create artist', () => {
     let db;
     beforeEach(async() => (db = await getDb()));
+    
     afterEach(async () => {
         await db.query('DELETE FROM Artist');
         await db.close();

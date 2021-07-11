@@ -9,4 +9,6 @@ router.get('/', artistController.read);
 
 router.get('/:artistId', artistController.findArtistById);
 
+router.patch('/:artistId', artistController.update);
+
 module.exports = router;

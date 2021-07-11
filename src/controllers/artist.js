@@ -40,3 +40,20 @@ exports.findArtistById = async (req, res) => {
     }
     db.close; 
 };
+
+exports.update = async (req, res) => {
+    const db = await getDb();
+    const data = req.body;
+    const { artistId } = req.params;
+    try {
+        const [{ affectedRows }] = await db.query('UPDATE Artist SET ? WHERE id = ?', [data, artistId]);
+        if (affectedRows) {
+            res.status(200).send();
+        } else {
+            res.sendStatus(404);
+        }
+    } catch (error) {
+        res.sendStatus(500);
+    }
+    db.close();
+};

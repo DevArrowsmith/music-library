@@ -23,7 +23,7 @@ describe('delete artist', () => {
             ]),
         ]);
 
-        [artists] = await db.query('SELECT * from Artist');
+        [artists] = await db.query('SELECT * FROM Artist');
     });
 
     afterEach(async () => {

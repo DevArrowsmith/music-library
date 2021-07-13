@@ -16,6 +16,31 @@ exports.create = async (req, res) => {
     db.close();
 };
 
+exports.read = async (_, res) => {
+    const db = await getDb();
+    try {
+        const [albums] = await db.query('SELECT * FROM Album');
+        res.status(200).json(albums);
+    } catch (error) {
+        res.status(500).json(error);
+    }
+    db.close;
+};
+
+exports.findAlbumById = async (req, res) => {
+    const db = await getDb();
+    const { albumId } = req.params;
+    const [[album]] = await db.query('SELECT * FROM Album WHERE id = ?', [
+        albumId
+    ]);
+    if(album) {
+        res.status(200).json(album);
+    } else {
+        res.sendStatus(404);
+    }
+    db.close;
+};
+
 exports.delete = async (req, res) => {
     const db = await getDb();
     const { albumId } = req.params;

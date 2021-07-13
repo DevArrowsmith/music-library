@@ -13,5 +13,21 @@ exports.create = async (req, res) => {
     } catch (error) {
         res.status(500).json(error);
     }
-    db.close;
+    db.close();
+};
+
+exports.delete = async (req, res) => {
+    const db = await getDb();
+    const { albumId } = req.params;
+    try {
+        const [{affectedRows}] = await db.query('DELETE FROM Album WHERE id = ?', [albumId]);
+        if (affectedRows) {
+            res.sendStatus(200);
+        } else {
+            res.sendStatus(404);
+        }
+    } catch (error) {
+        res.sendStatus(500);
+    }
+    db.close();
 };

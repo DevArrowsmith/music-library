@@ -24,7 +24,7 @@ exports.read = async (_, res) => {
     } catch (error) {
         res.status(500).json(error);
     }
-    db.close;
+    db.close();
 };
 
 exports.findAlbumById = async (req, res) => {
@@ -38,8 +38,25 @@ exports.findAlbumById = async (req, res) => {
     } else {
         res.sendStatus(404);
     }
-    db.close;
+    db.close();
 };
+
+exports.update = async (req, res) => {
+    const db = await getDb();
+    const data = req.body;
+    const { albumId } = req.params;
+    try {
+        const [{ affectedRows }] = await db.query('UPDATE Album SET ? WHERE id = ?', [data, albumId]);
+        if (affectedRows) {
+            res.status(200).send();
+        } else {
+            res.sendStatus(404);
+        }
+    } catch (error) {
+        res.sendStatus(500);
+    }
+    db.close();
+}
 
 exports.delete = async (req, res) => {
     const db = await getDb();

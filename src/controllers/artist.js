@@ -12,7 +12,7 @@ exports.create = async (req, res) => {
     } catch (error) {
         res.status(500).json(error);
     }
-    db.close;
+    db.close();
 };
 
 exports.read = async (_, res) => {
@@ -23,7 +23,7 @@ exports.read = async (_, res) => {
     } catch (error) {
         res.status(500).json(error);
     }
-    db.close;
+    db.close();
 };
 
 exports.findArtistById = async (req, res) => {
@@ -37,7 +37,7 @@ exports.findArtistById = async (req, res) => {
     } else {
         res.sendStatus(404);
     }
-    db.close; 
+    db.close();
 };
 
 exports.update = async (req, res) => {

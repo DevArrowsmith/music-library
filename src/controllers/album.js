@@ -27,7 +27,7 @@ exports.read = async (_, res) => {
     db.close();
 };
 
-exports.findAlbumById = async (req, res) => {
+exports.readById = async (req, res) => {
     const db = await getDb();
     const { albumId } = req.params;
     const [[album]] = await db.query('SELECT * FROM Album WHERE id = ?', [

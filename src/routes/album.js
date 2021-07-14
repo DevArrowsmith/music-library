@@ -7,7 +7,7 @@ router.post('/', albumController.create);
 
 router.get('/', albumController.read);
 
-router.get('/:albumId', albumController.findAlbumById);
+router.get('/:albumId', albumController.readById);
 
 router.patch('/:albumId', albumController.update);
 

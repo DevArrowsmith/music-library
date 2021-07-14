@@ -59,11 +59,11 @@ describe('update album', () => {
                 const album = albums[0];
                 const res = await request(app)
                     .patch(`/album/${album.id}`)
-                    .send({ name: 'new name', year: '5555' });
+                    .send({ name: 'Dangerous Days', year: '2014' });
                 expect(res.status).to.equal(200);
                 const [[newAlbumRecord]] = await db.query('SELECT * FROM Album WHERE id = ?', [album.id]);
-                expect(newAlbumRecord.name).to.equal('new name');
-                expect(newAlbumRecord.year).to.equal(5555);
+                expect(newAlbumRecord.name).to.equal('Dangerous Days');
+                expect(newAlbumRecord.year).to.equal(2014);
             });
 
             it('returns a 404 if the album is not in the database', async() => {

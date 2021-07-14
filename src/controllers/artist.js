@@ -26,7 +26,7 @@ exports.read = async (_, res) => {
     db.close();
 };
 
-exports.findArtistById = async (req, res) => {
+exports.readById = async (req, res) => {
     const db = await getDb();
     const { artistId } = req.params;
     const [[artist]] = await db.query('SELECT * FROM Artist WHERE id = ?', [

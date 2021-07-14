@@ -69,7 +69,7 @@ describe('update album', () => {
             it('returns a 404 if the album is not in the database', async() => {
                 const res = await request(app)
                     .patch('/album/999999')
-                    .send({ name: 'new name', year: '5555' });
+                    .send({ name: 'Interstella 5555', year: '2003' });
                 expect(res.status).to.equal(404);
             });
         });

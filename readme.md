@@ -36,30 +36,46 @@ Here's [a guide on cloning repos](https://docs.github.com/en/enterprise/2.13/use
 
 <br/>
 
-### 2. Download and launch the `music_library_mysql` database in Docker.
-Run the following command in a terminal:
+### 2. Install Node Packages.
+Run `npm install` from the root directory of the repo.
+
+</br>
+
+### 3. Pull a generic mysql database image and run it in Docker.
+
+Run the following commands in a terminal:
+
+- This command pulls a generic mysql image:
+
+```
+docker pull mysql
+```
+
+- This command runs the container:
 
 ```
 docker run -d -p 3307:3306 --name music_library_mysql -e MYSQL_ROOT_PASSWORD=password mysql
 ```
 
-<span style="color:goldenrod">*replace 'password' with a password. You'll need it in step 2.</span>
+<span style="color:goldenrod">*replace `password` with a password. You'll need it in step 4.</span>
 
 <br/>
 
-### 3. Useful commands to manipulate the container:
+### 4. Set up environment variables.
+Create a new file in the project's root directory called `.env`. This will store environment variables. This `.env` file is included in the project's `.gitignore`.
 
-|action|command|
-|-|-|
-|Stop the container|`docker container stop music_library_mysql`|
-|Run the (installed) container|`docker container run music_library_mysql`|
-|Delete the container|`docker container rm music_library_mysql`|
+DB_PASSWORD=<span style="color:goldenrod">*The password you selected in step 3.*</span>  
+DB_NAME=music_library_dev  
+DB_USER=root  
+DB_HOST=localhost  
+DB_PORT=3307  
+PORT=3000  
 
 <br/>
 
-### 4. Localhost the Music Library.
+### 4. Run the Music Library.
 
-After setting up the container for the music library database run the command `npm start` to locally host the music library app. This app can then be used to query the database.
+Run `npm start` from the project's root to locally host the music library app. The app can then be used to query the database.
 
 The `start` command is defined in `package.json`. It runs `index.js` in nodemon. 
 
@@ -72,6 +88,16 @@ The `start` command is defined in `package.json`. It runs `index.js` in nodemon.
 Run `npm t` or `npm test` to run the tests. 
 
 The `test`command is defined in `package.json`. It runs mocha with a specific configuration. Mocha is a test package designed for asynchronous processes.
+
+---
+
+## Useful commands to manipulate the music_library_mysql docker container:
+
+|action|command|
+|-|-|
+|Run the (installed) container|`docker start music_library_mysql`|
+|Stop the container|`docker stop music_library_mysql`|
+|Delete the container|`docker container rm music_library_mysql`|
 
 ---
 

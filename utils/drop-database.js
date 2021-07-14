@@ -1,7 +1,5 @@
 const mysql = require('mysql2/promise');
-
 const path = require('path');
-
 const envFile = '../.env.test';
 
 require('dotenv').config({
@@ -22,7 +20,7 @@ const dropDatabase = async () => {
     db.close();
     } catch (err) {
         console.log('Your environment variables may be wrong. Please double check the .env file.');
-        console.log('Enviornment variables are:', {
+        console.log('Environment variables are:', {
             DB_PASSWORD,
             DB_NAME,
             DB_USER,

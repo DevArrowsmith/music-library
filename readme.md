@@ -1,31 +1,51 @@
-# Music Library
+# Music Library 🎧🎶
 
- This is an exercise in the use of express to query a MySQL database.
+## Introduction
 
- This readme will be updated as the nature of the exercise becomes clear.
+This application is an API that performs CRUD commands on a SQL database of musical artists and albums. The app includes a test suite and utilities to create and drop a test database.
+
+This project is an exercise in:
+- MySQL
+- Docker
+- Express API creation
+- API testing using Mocha, Chai & Supertest
 
  ---
 
-## Music Library setup commands
+## Tools
 
-### 1. To launch the music_library_mysql database in Docker run the following command:
+- Written in JavaScript
+- [express](https://www.npmjs.com/package/express) used to create the API
+- [MySQL](https://dev.mysql.com/) used to create and query the database
+- [mysql2](https://www.npmjs.com/package/mysql2) used to communicate with the database using JS
+- [Docker](https://www.docker.com/) used to host the database
+- Testing performed using [mocha](https://www.npmjs.com/package/mocha), [chai](https://www.npmjs.com/package/chai) and [supertest](https://www.npmjs.com/package/supertest)
+- [dotenv](https://www.npmjs.com/package/dotenv) used to manage environment variables
+- [nodemon](https://www.npmjs.com/package/nodemon) used to streamline development
+
+---
+
+## Getting Started
+
+This repo can be installed and run locally. Before starting you'll need to install docker on your device. Here are the [ubuntu](https://docs.docker.com/engine/install/ubuntu/)/[mac](https://docs.docker.com/docker-for-mac/install/)/[windows](https://docs.docker.com/docker-for-windows/install/) installation guides.
+
+<br/>
+
+### 1. Clone [this repo](https://github.com/DevArrowsmith/music-library).
+Here's [a guide on cloning repos](https://docs.github.com/en/enterprise/2.13/user/articles/cloning-a-repository).
+
+<br/>
+
+### 2. Download and launch the `music_library_mysql` database in Docker.
+Run the following command in a terminal:
 
 ```
 docker run -d -p 3307:3306 --name music_library_mysql -e MYSQL_ROOT_PASSWORD=password mysql
 ```
 
-*replace 'password' with a password. You'll need it in step 2.
+<span style="color:goldenrod">*replace 'password' with a password. You'll need it in step 2.</span>
 
-This pulls and runs the image.
-
-
-### 2. Open up my-sql workbench app and connect to the mysql container.
-
-|parameter|value|
-|-|-|
-|host|127.0.0.1|
-|port|3307|
-|password|*The password you selected in step 1.*|
+<br/>
 
 ### 3. Useful commands to manipulate the container:
 
@@ -35,7 +55,9 @@ This pulls and runs the image.
 |Run the (installed) container|`docker container run music_library_mysql`|
 |Delete the container|`docker container rm music_library_mysql`|
 
-## Localhost the Music Library
+<br/>
+
+### 4. Localhost the Music Library.
 
 After setting up the container for the music library database run the command `npm start` to locally host the music library app. This app can then be used to query the database.
 
@@ -43,8 +65,42 @@ The `start` command is defined in `package.json`. It runs `index.js` in nodemon.
 
 (*Nodemon is a package that runs the specified script in node, but also restarts that script each time a change is made to the application. This saves us a lot of time that may otherwise be spent manually stopping and starting the app each time we update it.*)
 
-## Testing the App
+<br/>
+
+### 5. Testing the App.
 
 Run `npm t` or `npm test` to run the tests. 
 
-The `test`command is defined in `package.json`. It runs mocha with a specific configuration. Mocha is a test package. It was designed with asynchronous processes in mind.
+The `test`command is defined in `package.json`. It runs mocha with a specific configuration. Mocha is a test package designed for asynchronous processes.
+
+---
+
+## Acknowledgements
+
+### Project: [express](https://www.npmjs.com/package/express) 
+- Copyright (c) 2009-2014 [TJ Holowaychuk](tj@vision-media.ca)
+- Copyright (c) 2013-2014 [Roman Shtylman](shtylman+expressjs@gmail.com)
+- Copyright (c) 2014-2015 [Douglas Christopher Wilson](doug@somethingdougcom) 
+- License: [MIT](https://github.com/expressjs/express/blob/master/LICENSE)
+### Project: [mocha](https://www.npmjs.com/package/mocha)  
+- Copyright (c) 2011-2021 [OpenJS Foundation](https://openjsf.org) and contributors.  
+- License: [MIT](https://github.com/mochajs/mocha/blob/master/LICENSE)
+### Project: [chai](https://www.npmjs.com/package/chai)  
+- Copyright (c) 2017 Chai.js Assertion Library.  
+- License: [MIT](https://github.com/chaijs/chai/blob/main/LICENSE)
+### Project: [supertest](https://www.npmjs.com/package/supertest)  
+- Copyright (c) 2014 [TJ Holowaychuk](tj@vision-media.ca) 
+- License: [MIT](https://github.com/visionmedia/supertest/blob/master/LICENSE)
+### Project: [MySQL](https://dev.mysql.com/)  
+- Copyright (c) 2021, Oracle Corporation.
+### Project: [mysql2](https://www.npmjs.com/package/mysql2)  
+- Copyright (c) 2016 [Andrey Sidorov](sidorares@yandex.ru) and contributors
+- License: [MIT](https://github.com/sidorares/node-mysql2/blob/master/License)
+### Project: [Docker](https://www.docker.com/)  
+- Copyright (c) 2013-2015 Docker, Inc. All rights reserved.
+### Project: [dotenv](https://www.npmjs.com/package/dotenv)  
+- Copyright (c) 2015, Scott Motte.  
+- License: [BSD 2-Clause "Simplified" License](https://github.com/motdotla/dotenv/blob/master/LICENSE)
+### Project: [nodemon](https://www.npmjs.com/package/nodemon)  
+- Copyright (c) 2010 - present, [Remy Sharp](https://remysharp.com).  
+- License: [MIT](https://github.com/remy/nodemon/blob/main/LICENSE)

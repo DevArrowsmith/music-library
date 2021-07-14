@@ -1,9 +1,6 @@
 const mysql = require('mysql2/promise');
-
 const path = require('path');
-
 const args = process.argv.slice(2)[0];
-
 const envFile = args === 'test' ? '../.env.test' : '../.env';
 
 require('dotenv').config({

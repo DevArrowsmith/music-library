@@ -1,0 +1,26 @@
+{
+    "swagger":"2.0",
+    "info": {
+      "version": "1.0.0",
+      "title": "Music Library",
+      "description": "An API for a database of musical artists and their albums.",
+      "license": {
+        "name": "MIT",
+        "url": "https://opensource.org/licenses/MIT"
+      }
+    },
+    "basePath": "/",
+    "consumes": [
+      "application/json"
+    ],
+    "produces": [
+      "application/json"
+    ],
+    "schemes": [
+      "http",
+      "https"
+    ],
+    "tags": [],
+    "paths": {},
+    "definitions": {}
+  }

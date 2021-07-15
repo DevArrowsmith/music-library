@@ -96,6 +96,7 @@ The `test`command is defined in `package.json`. It runs mocha with a specific co
 |action|command|
 |-|-|
 |Run the (installed) container|`docker start music_library_mysql`|
+|View all running containers|`docker container ls`|
 |Stop the container|`docker stop music_library_mysql`|
 |Delete the container|`docker container rm music_library_mysql`|
 
